@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+    items: FirebaseListObservable<any[]>;
+   constructor(db: AngularFireDatabase) {
+    this.items = db.list('/users');
+  }
 }

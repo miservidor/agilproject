@@ -1,0 +1,73 @@
+<div class="titular">
+  <h2>Calendar</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6"><input type="text"  name="mes" (change)="actualiza();" value="mes" [(ngModel)]="mes"></div>
+    <div class="col-sm-6"><h1>2017</h1>{{diasmes}}</div>
+  </div>
+</div>
+<div class="container">
+  <div class="row titmes">
+    <div class="col-sm-12">{{namemes()}} {{ano}}</div>
+  </div>
+  <div class="rowh">
+    <div class="titproj"></div>
+    <div *ngFor="let i of calendario" [ngClass]="{'domingo': eldianum(i.dia)===0}" class="diah" ><div class="mes-fecha">{{i.dia}}</div></div>
+  </div>
+    <div *ngFor="let akt of activitaet" class="rowh">
+    <div class="titproj">{{akt.name}}</div>
+    <div *ngFor="let i of calendario" [ngClass]="{'domingo': eldianum(i.dia)===0}" class="diah" ><!--div class="mes-fecha"></div--><div *ngIf="i[akt.name]" class="aktag" [ngStyle]="{'background': akt.farbe}"></div></div>
+  </div>
+</div>
+<hr>
+{{calendario | json}}
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+ Create AG
+</button>
+{{activitaet | json}}
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create AG</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6">name</div>
+          <div class="col-sm-6"><input type="text" [(ngModel)]="agname" name="agname" value=""></div>
+        </div>
+                <div class="row">
+          <div class="col-sm-6">farbe</div>
+          <div class="col-sm-6"><input type="color" [(ngModel)]="agfarbe" name="agfarbe" value=""></div>
+        </div>
+                        <div class="row">
+          <div class="col-sm-6">description</div>
+          <div class="col-sm-6"><input type="textarea" [(ngModel)]="agdesc" rows="3" cols="20" name="agdesc" value=""></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"(click)="addag()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--div class="container">
+  <div class="mes-row">
+    <div class="col-sm-2">
+
+      <div class="mes-row">
+        <div class="titmes">{{namemes()}} </div>
+      </div>
+      <div *ngFor="let i of listadias" class="mes-row">
+        <div class="mes-dia"  [ngClass]="{'domingo': eldianum(i)===0}" ><div class="mes-fecha">{{i}}</div></div>
+      </div>
+    </div>
+  </div>
+</div-->

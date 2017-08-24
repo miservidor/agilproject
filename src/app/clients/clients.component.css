@@ -1,0 +1,15 @@
+.titular{
+background:#4284D3;
+color: white;
+width: 100%;
+padding-top: 15px;
+padding-bottom: 15px;
+padding-right: 10px;
+padding-left: 25px;
+}
+.listaform{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}

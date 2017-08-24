@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.titular{
+background:#4284D3;
+color: white;
+width: 100%;
+padding-top: 15px;
+padding-bottom: 15px;
+padding-right: 10px;
+padding-left: 25px;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+.lista{
+    width: 100%;
+    display: -webkit-inline-box;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;    
+}
+.lista:hover{
+    background: #FFC973;
+    color: white;
+}
+.col-50{
+    width: 50%;
+}
+.col-75{
+    width: 75%;
+}
+.col-25{
+    width: 25%;
+}
+.col-10{
+    width: 10%;
+}

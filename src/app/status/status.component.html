@@ -1,0 +1,48 @@
+<div class="titular">
+  <div class="row">
+    <div class="col-sm-3"> <h2>Status </h2></div>
+    <div class="col-sm-6"> </div>
+  </div>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="todobox"><div class="titcol">To Do</div>
+    
+      <div class="tarjbox" *ngFor="let task of listtasks | async | filstatus:'todo'" (dblclick)="ChangeStatus(task.$key, 'inprogress')" draggable="true">
+        <div class="tartit">{{task.nametask}} | {{task.projecttask}}</div>
+        <div class="tardesc">
+          {{task.desctask}}
+        </div>
+      </div>
+
+
+    
+    </div>
+    </div>
+    <div class="col-sm-3">
+            <div class="progressbox"><div class="titcol">In Progress</div>
+                <div class="tarjbox" *ngFor="let task of listtasks | async | filstatus:'inprogress'" (dblclick)="ChangeStatus(task.$key, 'tocheck')" draggable="true">
+                    <div class="tartit">{{task.nametask}} | {{task.projecttask}}</div>
+                    <div class="tardesc">
+                      {{task.desctask}}
+                    </div>
+                  </div>
+          </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="checkearbox"><div class="titcol">To Check</div>
+                    <div class="tarjbox" *ngFor="let task of listtasks | async | filstatus:'tocheck'" draggable="true">
+                    <div class="tartit">{{task.nametask}} | {{task.projecttask}}</div>
+                    <div class="tardesc">
+                      {{task.desctask}}
+                    </div>
+                  </div>
+    </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="readybox"><div class="titcol">Ready</div></div>
+    </div>
+  </div>
+</div>

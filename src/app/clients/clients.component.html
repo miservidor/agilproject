@@ -1,0 +1,94 @@
+<div class="titular">
+  <h2>Clients</h2>
+</div>
+<div class="container">
+  <div class="row">
+  <md-tab-group>
+  <md-tab label="List">
+
+<div class="lista" *ngFor="let item of listaclients | async">
+  <div class="col-25">{{item.namecli}}</div>
+  <div class="col-25">{{item.citycli}}</div>
+  <div class="col-50"></div>
+</div>
+
+<!--div class="row userlist" *ngFor="let item of listaclients | async">
+  <div class="col-sm-11">{{item.namecli}} {{item.$key}}</div><div class="col-sm-1" (click)="removeItemFromList(item.$key);">X</div>
+</div-->
+
+  </md-tab>
+  <md-tab label="Add">
+
+ <div class="row">
+       <div class="col-sm-12"><h2>Add Client</h2>
+      
+      
+      </div>
+     </div>
+        <div class="row">
+
+          <div class="col-sm-6">
+            <md-input-container>
+            <input type="text" mdInput placeholder="Id Cli"  [(ngModel)]="idcli" name="idcli" value="">
+            </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-sm-6">
+            <md-input-container>
+            <input type="text" mdInput placeholder="Name" [(ngModel)]="namecli" name="namecli" value="">
+          </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-sm-6">
+            <md-input-container>
+            <input type="text" mdInput placeholder="Address"  [(ngModel)]="addresscli" name="addresscli" value="">
+          </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-sm-6">
+            <md-input-container>
+            <input type="text" mdInput placeholder="City" [(ngModel)]="citycli" name="citycli" value="">
+          </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          
+          <div class="col-sm-6">
+            <md-input-container>
+            <input type="text" mdInput placeholder="Phone" [(ngModel)]="phonecli" name="phonecli" value="">
+          </md-input-container>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+          <md-input-container>
+            <input type="text" mdInput placeholder="Status" [(ngModel)]="statuscli" name="statuscli" value="">
+          </md-input-container>
+          </div>
+        </div> 
+        <div class="row">
+          <div class="col-sm-6">
+            <button type="text" (click)="AddclientTest();">Enviar</button>
+          </div>
+          <div class="col-sm-6"></div>
+        </div>
+
+
+  </md-tab>
+</md-tab-group>
+
+    <div class="col-sm-6">
+
+
+    </div>
+    <div class="col-sm-6">
+    
+    </div>
+  </div>
+</div>

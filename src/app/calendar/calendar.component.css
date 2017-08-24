@@ -1,0 +1,39 @@
+.mes-row{
+    display:flex;
+}
+.titmes{
+    width: 100%;
+    padding: 10px;
+    background: burlywood;
+    color: white;
+}
+.mes-dia{
+    width: 100%;
+    min-height: 20px;
+    padding: 5px;
+}
+.mes-dia:hover{
+    background: #EFE1C3;
+}
+.mes-fecha{
+    font-size: 10px;
+    color: #777;
+}
+.domingo{
+    background: #EFE1C3;
+}
+.diah{
+    width: 20px;
+    border-left: 1px solid #FFE4AF;
+}
+.rowh{
+    display: flex;
+}
+.titproj{
+    width: 100px;
+}
+.aktag{
+    background: #29477F;
+    width: 100% !important;
+    height: 18px;
+}

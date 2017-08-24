@@ -1,0 +1,148 @@
+<div class="titular">
+  <div class="row">
+    <div class="col-sm-3"> <h2>Tasks </h2></div>
+    <div class="col-sm-6">  <md-select placeholder="Choose Project" [(ngModel)]="projecttask">
+   <md-option *ngFor="let state of listprojects | async"  [value]="state.codpro" >{{ state.namepro }}</md-option>
+  </md-select></div>
+  </div>
+</div>
+
+  <md-tab-group>
+  <md-tab label="List">
+    <div class="lista" *ngFor="let task of listtasks | async">
+      <div class="col-50"> {{task.projecttask}} {{task.nametask}} {{task.statustask}}</div>
+      <div class="col-50"></div>
+    </div>
+  </md-tab>
+  <md-tab label="Add">
+
+    <div class="container">
+  <div class="row">
+ 
+  <div class="col-sm-6"><h3>Ingresar Tarea</h3>
+    <div class="row">
+      
+      <div class="col-sm-6">Cod Task:</div>
+      <div class="col-sm-6">
+        <md-input-container>
+        <input mdInput placeholder="Code Task"  [(ngModel)]="codtask" name="codtask" value="">
+      </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">Project Task:</div>
+      <div class="col-sm-6">
+        <md-input-container>
+        <input mdInput placeholder="Project Task" [(ngModel)]="projecttask" name="projecttask" id="projecttask" value="">
+      </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">Name Task:</div>
+      <div class="col-sm-6">
+        <md-input-container>
+          <input mdInput placeholder="Name Task" [(ngModel)]="nametask" name="nametask" value="">
+        </md-input-container>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">Description Task:</div>
+      <div class="col-sm-6">
+        <md-input-container>
+        <input mdInput placeholder="Cod " [(ngModel)]="desctask" name="desctask" value="">
+      </md-input-container>
+      </div>
+    </div>
+
+            <div class="row">
+          <div class="col-sm-6">Day Start</div>
+          <div class="col-sm-6">
+      
+          <input type="date" [(ngModel)]="dstarttask" name="dstarttask" id="dstarttask">    
+
+        </div>
+    </div>
+
+<md-tab-group>
+  <md-tab label="Hours">
+
+    <div class="rowesp">
+      <div class="col-sm-6">Hour Start</div>
+      <div class="col-sm-6"><input type="time" mdInput [(ngModel)]="hstarttask" name="hstarttask" placeholder="Time Start"></div>
+    </div>
+    <div class="roweso">
+      <div class="col-sm-6">Hour End</div>
+      <div class="col-sm-6"><input type="time" mdInput [(ngModel)]="hendtask" name="hendtask" placeholder="Time End"></div>
+    </div>
+
+  </md-tab>
+  <md-tab label="Days">
+
+
+      <input type="date" [(ngModel)]="dendtask" name="dendtask" id="dendtask" >    
+
+
+  </md-tab>
+</md-tab-group>
+
+<hr>
+
+    <div class="row">
+      <div class="col-sm-6">Color</div>
+      <div class="col-sm-6"><input type="color" [(ngModel)]="colortask" name="colortask" value="">( {{colortask}} )</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">Users</div>
+      <div class="col-sm-6"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="usersinak">
+          <div class="usr" *ngFor="let user of usuarios"  (click)="user.active=true;">
+            <span *ngIf="!user.active">{{user.usrname}} </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2 middle"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </div>
+      <div class="col-sm-4">
+
+                <div class="usersinak">
+          <div class="usr" *ngFor="let user of usuarios"  (click)="user.active=false;">
+            <span *ngIf="user.active">{{user.usrname}} </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">status</div>
+      <div class="col-sm-6">
+        <md-input-container>
+        <input mdInput placeholder="Status " [(ngModel)]="statustask"  name="statustask" value="">
+        </md-input-container>
+      </div>
+      </div>
+    <div class="row">
+      <div class="col-sm-6">client</div>
+      <div class="col-sm-6">
+        <md-input-container>
+        <input mdInput placeholder="Client" [(ngModel)]="clientetask"  name="clientetask" value="">
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6"></div>
+      <div class="col-sm-6"><button (click)="AddTask()" md-raised-button>Add Task</button></div>
+    </div>
+
+</div>
+ <div class="col-sm-6">
+  </div>
+
+  </div>
+</div>
+
+
+  </md-tab>
+  </md-tab-group>

@@ -1,0 +1,21 @@
+.userlist{
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    border-bottom: solid #999 1px;
+}
+.userlist:hover{
+    background:#4284D3;
+    color: white;
+}
+.rowesp{
+    display: -webkit-inline-box;
+}
+a>i{
+margin-left: 10px;
+margin-right: 10px;
+}
+md-list-item:hover{
+background: #f90;
+color: white;
+}

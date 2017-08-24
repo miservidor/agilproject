@@ -1,0 +1,34 @@
+.pad10{
+    padding: 10px;
+}
+.menuliz{
+    width: 100%;
+    border-bottom: solid 1px #999;
+}
+.solapa{
+    display: inline-block;
+    width: 200px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius:  5px 5px 0px 0px;
+    background-color: #b5b5b5;
+}
+.solapa:hover{
+        border-radius:  5px 5px 0px 0px;
+    background-color: #f90;
+}
+.enfoco{
+    padding: 20px;
+    font-size: 18px;
+}
+.enfoco:hover{
+    background: #ffd6aa;
+}
+.titular{
+background:#4284D3;
+color: white;
+width: 100%;
+}

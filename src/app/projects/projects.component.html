@@ -1,0 +1,103 @@
+<div class="titular"><h2>Projects</h2></div>
+
+ <md-tab-group>
+    <md-tab label="List">
+      <div class="lista" *ngFor="let item of listprojects | async">
+        <div class="col-50">{{item.codpro}} {{item.namepro}} </div>
+        <div class="col-50"></div>
+      </div>
+
+      <!--md-nav-list>
+        <md-list-item *ngFor="let item of listprojects | async">
+          <span md-line>{{item.codpro}} {{item.namepro}} {{item.$key}}</span>
+
+          <button md-icon-button (click)="removeItemFromList(item.$key);">
+              <md-icon>x</md-icon>
+          </button>
+        </md-list-item>
+      </md-nav-list-->
+    </md-tab>
+
+    <md-tab label="Add">
+
+
+    <div class="row listaform">
+
+      <div class="col-sm-6">
+        <md-input-container>
+        <input type="text" mdInput placeholder="Cod Pro" [(ngModel)]="codpro" name="codpro" value="">
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row listaform">
+
+      <div class="col-sm-6">
+        <md-input-container>
+        <input type="text" mdInput placeholder="Name" [(ngModel)]="namepro" name="namepro" value="">
+        </md-input-container>
+      </div>
+    </div>
+        <div class="row listaform">
+
+      <div class="col-sm-6">
+        <md-input-container>
+        <input type="text" mdInput placeholder="Description" [(ngModel)]="descpro" name="descpro" value="">
+        </md-input-container>
+      </div>
+    </div>   
+    <div class="row listaform">
+
+      <div class="col-sm-6">
+        <md-input-container>
+        <input type="date" mdInput [(ngModel)]="startpro" name="startpro" value="">
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row listaform">
+
+      <div class="col-sm-6">
+        <md-input-container>
+        <input type="date"  mdInput [(ngModel)]="endpro" name="endpro" value="">
+      </md-input-container>
+      </div>
+    </div>
+    <div class="row listaform">
+      <div class="col-sm-6">Users</div>
+      <div class="col-sm-6">
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="usersinak">
+          <div class="usr" *ngFor="let user of usuarios"  (click)="user.active=true;">
+            <span *ngIf="!user.active">{{user.usrname}} </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2 middle"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </div>
+      <div class="col-sm-4">
+        <div class="usersinak">
+          <div class="usr" *ngFor="let user of usuarios"  (click)="user.active=false;">
+            <span *ngIf="user.active">{{user.usrname}} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="row">
+
+  <div class="col-sm-6"><button type="" (click)="AddProject()">Add Project</button></div>
+  <div class="col-sm-6"></div>
+</div>
+
+
+    </md-tab>
+  </md-tab-group>
+
+<div class="container">
+
+
+
+
+</div>
