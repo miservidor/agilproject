@@ -1,0 +1,63 @@
+<div class="aaa">
+
+<md-tab-group>
+  <md-tab label="Login">
+
+<h1>{{estadouser | async}}</h1>
+<div> {{ (user | async)?.uid }} </div>    
+<button (click)="login()">Login Gmail</button>
+    <button (click)="logout()">Logout</button>
+
+    <input type="text" [(ngModel)]="email" name="email" value="email">
+    <input type="password" [(ngModel)]="password" name="password" value="password">
+
+
+    <button (click)="loginemail()">Login Email</button>
+
+  </md-tab>
+  <md-tab label="Register">
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+         <md-input-container>
+    <input mdInput placeholder="Name"  type="text"  [(ngModel)]="name" name="name" value="">
+  </md-input-container>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+         <md-input-container>
+            <input mdInput placeholder="Email"  type="text"  [(ngModel)]="email" name="email" value="">
+        </md-input-container>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+          <md-input-container>
+            <input mdInput placeholder="Password"  type="password"  [(ngModel)]="password" name="password" value="">
+        </md-input-container>                     
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+         <md-input-container>
+            <input mdInput placeholder="Company/Organization"  type="text"  [(ngModel)]="Company" name="company" value="">
+        </md-input-container>
+            </div>
+        </div>
+    </div>
+
+        <button (click)="logemail()">Sign Up Email</button>
+    
+  </md-tab>
+</md-tab-group>
+
+
+
+
+
+
+
+    </div>

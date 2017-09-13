@@ -1,6 +1,33 @@
 .menubox{
-    background: #1976D2;
+    background: #009688;
     color: white;
-    padding: 20px;
+    padding: 10px;
     font-size: 20px;
+    box-shadow: #777 2px 2px 2px;
+    z-index: 9999;
+
+}
+.img-circle {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}
+.box-user{
+    width: 180px;
+    margin-left: 10px;
+    display: flex;
+}
+.box-user-foto{
+    width: 60px;
+}
+.box-user-txt{
+    width: 120px;
+}
+.material-icons{
+    font-size: 40px;
+}
+.right{
+    text-align: right;
+    padding-right:10px;
+    border-right: solid white 1px; 
 }

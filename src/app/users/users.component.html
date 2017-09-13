@@ -1,90 +1,55 @@
 <div class="titular">
   <h2>Usuarios</h2>
 </div>
-<div class="container">
-  <div class="row">
-<div class="col-sm-12">
-  <md-tab-group>
-  <md-tab label="List">
-<div class="lista" *ngFor="let item of listado | async">
-<div class="col-50">{{item.name}}</div>
-<div class="col-50">     <a href=""><i class="material-icons">contact_mail</i></a>
-     <a href=""> <i class="material-icons">chat_bubble</i></a>
-     <a href=""><i class="material-icons">trending_up</i></a>
-     <a (click)="removeItemFromList(item.$key);"><i class="material-icons">clear</i></a></div>
-</div>
-
-<!--md-list>
-  <md-list-item *ngFor="let item of listado | async">
-     <a md-line href="...">{{item.name}}</a>
-     <a href=""><i class="material-icons">contact_mail</i></a>
-     <a href=""> <i class="material-icons">chat_bubble</i></a>
-     <a href=""><i class="material-icons">trending_up</i></a>
-     <a (click)="removeItemFromList(item.$key);"><i class="material-icons">clear</i></a>
-  </md-list-item>
-</md-list-->
-
-<!--div class="row userlist" *ngFor="let item of listado | async">
-  <div class="col-sm-10"><i class="material-icons">account_circle</i> {{item.name}}</div><div class="col-sm-1" (click)="removeItemFromList(item.$key);">X</div>
-</div-->
-
-
-  </md-tab>
-  <md-tab label="Add">
-
+<div class="laterales">
       <div class="row">
-        <div class="col-sm-12"><h3>New User</h3></div>
+    <div class="col-sm-8">
+    <div class="box-header">lista</div>
+      <div class="lista" *ngFor="let item of listusers | async">
+    <div class="col-50">{{item.email}}, {{item.name}} {{item.status}}</div>
+    <div class="col-50">     <a href=""><i class="material-icons">contact_mail</i></a>
+        <a href=""> <i class="material-icons">chat_bubble</i></a>
+        <a href=""><i class="material-icons">trending_up</i></a>
+        <a (click)="removeItemFromList(item.$key);"><i class="material-icons">clear</i></a></div>
+    </div>
+    </div>
+    <div class="col-sm-4">
+    <div class="box-header">New User</div>
+    <div class="box-body">
+    <div class="row">
+        <div class="col-sm-12">
+          <md-input-container>
+          <input  type="text" mdInput placeholder="Name" [(ngModel)]="username" name="username" value="username">
+        </md-input-container>
       </div>
-
-
-<div class="row">
-
-  <div class="col-sm-6">
-    <md-input-container>
-    <input mdInput placeholder="Name"  type="text"  [(ngModel)]="username" name="username" value="username">
-  </md-input-container></div>
-</div>
-<div class="row">
-
-  <div class="col-sm-6">
-    <md-input-container>
-    <input type="text" mdInput placeholder="Email" [(ngModel)]="useremail" name="useremail" value="useremail">
-  </md-input-container>
-  </div>
-</div>
-<div class="row">
-
-  <div class="col-sm-6">
-    <md-input-container>
-    <input type="text" mdInput placeholder="Code" [(ngModel)]="usercode" name="usercode" value="usercode">
-  </md-input-container>
-  </div>
-</div>
-<div class="row">
-
-  <div class="col-sm-6">
-    <md-input-container>
-    <input type="text" mdInput placeholder="Group" [(ngModel)]="usergruppe" name="usergruppe" value="usergruppe">
-  </md-input-container>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-6"><button type="" (click)="NewUser()">Add User</button></div>
-  <div class="col-sm-6"></div>
-</div>
-
-  </md-tab>
-</md-tab-group>
-</div>
-
-
-
-    <div class="col-sm-6">
+    </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <md-input-container>
+          <input type="text" mdInput placeholder="Email" [(ngModel)]="useremail" name="useremail" value="useremail">
+        </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <md-input-container>
+          <input type="text" mdInput placeholder="Code" [(ngModel)]="usercode" name="usercode" value="usercode">
+        </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <md-input-container>
+          <input type="text" mdInput placeholder="Group" [(ngModel)]="usergruppe" name="usergruppe" value="usergruppe">
+        </md-input-container>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-sm-12"><button (click)="AddUser()">Add User</button></div>
+        </div>
+    </div>
 
 
     </div>
-    <div class="col-sm-6">
-
     </div>
-  </div>
 </div>

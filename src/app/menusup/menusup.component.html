@@ -1,1 +1,19 @@
-<div class="menubox"> Scram System beta</div>
+<div class="menubox lista"> 
+    <div class="col-70">AGIL Software</div>
+
+<div class="col-20 right">
+    <div *ngIf="(user | async)?.uid" class="box-user">
+        <div *ngIf="(dato | async)?.foto" class="box-user-foto">
+            <img class="img-circle" src="{{(dato | async)?.foto}}">
+        </div>
+        <div class="box-user-txt">
+            <span style="font-size:14px; color:greenyellow;">{{(dato | async)?.nombreuser}}</span>
+            <span style="font-size:10px;">{{(dato | async)?.rol}}</span>
+        </div>
+    </div>
+</div>
+    <div class="col-10">
+        <a routerLink="/useredit" routerLinkActive="active">
+         <i class="material-icons" style="color:greenyellow;padding-left:10px;">settings</i></a>
+    </div>
+</div>

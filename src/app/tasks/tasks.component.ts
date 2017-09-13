@@ -38,7 +38,6 @@ export class TasksComponent implements OnInit {
 
 AddTask:any = function(){
     var objtask = {
-
       'codtask':this.codtask,
       'projecttask':this.projecttask,
       'nametask':this.nametask,

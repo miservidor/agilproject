@@ -4,7 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { QRCodeModule } from 'angular2-qrcode';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
+import * as firebase from 'firebase/app';
 
 
 import { AppComponent } from './app.component';
@@ -12,8 +16,9 @@ import { MenusupComponent } from './menusup/menusup.component';
 import { MenulatComponent } from './menulat/menulat.component';
 import { MainComponent } from './main/main.component';
 import { LizenzComponent } from './lizenz/lizenz.component';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+
+
 import { environment } from '../environments/environment';
 import { SoftwareComponent } from './software/software.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -29,12 +34,24 @@ import { DatesPipe } from './pipes/dates.pipe';
 import { FechaPipe } from './pipes/fecha.pipe';
 
 import {  MaterialModule, DateAdapter, MdDateFormats, MD_DATE_FORMATS } from '@angular/material';
-import {AppDateAdapter, APP_DATE_FORMATS} from './myadapter';
+import { AppDateAdapter, APP_DATE_FORMATS} from './myadapter';
 import { StatusComponent } from './status/status.component';
 import { FilstatusPipe } from './pipes/filstatus.pipe';
+import { LoginComponent } from './login/login.component';
+import { EmailComponent } from './email/email.component';
+import { SignupComponent } from './signup/signup.component';
+import { MembersComponent } from './members/members.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { IndexComponent } from './index/index.component';
+import { UploadFormComponent } from './uploads/upload-form/upload-form.component';
+import { NumstatusPipe } from './pipes/numstatus.pipe';
+import { ChronosComponent } from './report/chronos/chronos.component';
+import { ChatComponent } from './chat/chat.component';
+import { UsereditComponent } from './useredit/useredit.component';
 
 const appRoutes: Routes = [
-  { path: '', component: CalendarComponent },
+  { path: '', component: DashboardComponent },
+  { path: 'index', component: IndexComponent },
   { path: 'main', component: MainComponent },
   { path: 'lizenz', component: LizenzComponent },
   { path: 'software', component: SoftwareComponent },
@@ -43,7 +60,10 @@ const appRoutes: Routes = [
   { path: 'projects', component: ProjectsComponent },
   { path: 'tasks', component: TasksComponent },
   { path: 'clients', component: ClientsComponent },
-  { path: 'status', component: StatusComponent }
+  { path: 'status', component: StatusComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'upload', component: UploadFormComponent },
+  { path: 'useredit', component: UsereditComponent }
 ];
 
 
@@ -64,16 +84,28 @@ const appRoutes: Routes = [
     DatesPipe,
     FechaPipe,
     StatusComponent,
-    FilstatusPipe
+    FilstatusPipe,
+    LoginComponent,
+    EmailComponent,
+    SignupComponent,
+    MembersComponent,
+    DashboardComponent,
+    IndexComponent,
+    UploadFormComponent,
+    NumstatusPipe,
+    ChronosComponent,
+    ChatComponent,
+    UsereditComponent
   ],
   imports: [
     BrowserModule,
-    QRCodeModule,
     AngularFireModule.initializeApp(environment.firebase),
+    QRCodeModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    RouterModule.forRoot(appRoutes),
     MdButtonModule, 
     MdCheckboxModule,
     MdInputModule,

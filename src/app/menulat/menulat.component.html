@@ -1,40 +1,72 @@
 <div class="menulatbox">
-<div class="row butmenu">
-       <a routerLink="/users" routerLinkActive="active">
-     <div class="col-xs-3"><i class="material-icons">account_box</i> </div>
-    <div class="col-xs-9">Users</div>
-     </a>
+  <div class="row">
+    <div class="col-xs-3 lat-icon">
+      <div [ngClass]="{'active': mainmenu==='home'}" class="icon-button" (click)="mainmenu='home'"><i class="material-icons">home</i></div>
+      <div [ngClass]="{'active': mainmenu==='inbox'}" class="icon-button" (click)="mainmenu='inbox'"><i class="material-icons">inbox</i></div>  
+      <div class="icon-button"><i class="material-icons">insert_invitation</i></div>
+      <div class="icon-button"><i class="material-icons">insert_chart</i></div>
 
-</div>
-<div class="row butmenu">
-      <a routerLink="/clients" routerLinkActive="active">
-      <div class="col-xs-3"><i class="material-icons">contacts</i></div>
-      <div class="col-xs-9">Clients</div>
-     </a>
-</div>
-<div class="row butmenu">
-    <a routerLink="/projects" routerLinkActive="active">
-  <div class="col-xs-3"><i class="material-icons">assignment</i></div>
-  <div class="col-xs-9">Projects</div>
-     </a>
-</div>
-<div class="row butmenu">
-  <a routerLink="/tasks" routerLinkActive="active">
-  <div class="col-xs-3"><i class="material-icons">list</i></div>
-  <div class="col-xs-9">Tasks</div>
-  </a>
-</div>
+      <div class="icon-button"><i class="material-icons">chat</i></div>
+      <div class="icon-button"><i class="material-icons">supervisor_account</i></div>
+      <div class="icon-button"><i class="material-icons">power_settings_new</i></div>
+    </div>
+    <div *ngIf="menuexpand" class="col-xs-7">
+      <div class="row butmenu">
+            <a routerLink="/dashboard" (click)="mainbut='dashboard'" routerLinkActive="active">
+          <div [ngClass]="{'activesmenu': mainbut==='dashboard'}" class="col-xs-3"><i class="material-icons">dashboard</i> </div>
+          <div [ngClass]="{'activesmenu': mainbut==='dashboard'}" class="col-xs-9">Dashboard</div>
+          </a>
 
-<div class="row butmenu">
-  <a routerLink="/calendar" routerLinkActive="active">
-    <div class="col-xs-3"><i class="material-icons">date_range</i></div>
-    <div class="col-xs-9">Calendar</div>
-  </a>
-</div>
-<div class="row butmenu">
-  <a routerLink="/status" routerLinkActive="active">
-    <div class="col-xs-3"><i class="material-icons">low_priority</i></div>
-    <div class="col-xs-9">Status Tasks</div>
-  </a>
-</div>
+      </div>
+        <div class="row butmenu">
+            <a routerLink="/users" (click)="mainbut='users'" routerLinkActive="active">
+          <div [ngClass]="{'activesmenu': mainbut==='users'}"class="col-xs-3"><i class="material-icons">account_box</i> </div>
+          <div [ngClass]="{'activesmenu': mainbut==='users'}"class="col-xs-9">Users</div>
+          </a>
+
+      </div>
+      <div class="row butmenu">
+            <a routerLink="/clients" (click)="mainbut='clients'" routerLinkActive="active">
+            <div [ngClass]="{'activesmenu': mainbut==='clients'}" class="col-xs-3"><i class="material-icons">contacts</i></div>
+            <div [ngClass]="{'activesmenu': mainbut==='clients'}" class="col-xs-9">Clients</div>
+          </a>
+      </div>
+      <div class="row butmenu">
+          <a routerLink="/projects" (click)="mainbut='projects'" routerLinkActive="active">
+        <div [ngClass]="{'activesmenu': mainbut==='projects'}" class="col-xs-3"><i class="material-icons">assignment</i></div>
+        <div [ngClass]="{'activesmenu': mainbut==='projects'}" class="col-xs-9">Projects</div>
+          </a>
+      </div>
+      <div class="row butmenu">
+        <a routerLink="/tasks" (click)="mainbut='tasks'" routerLinkActive="active">
+        <div [ngClass]="{'activesmenu': mainbut==='tasks'}" class="col-xs-3"><i class="material-icons">list</i></div>
+        <div [ngClass]="{'activesmenu': mainbut==='tasks'}" class="col-xs-9">Tasks</div>
+        </a>
+      </div>
+
+      <div class="row butmenu">
+        <a routerLink="/calendar" (click)="mainbut='calendar'" routerLinkActive="active">
+          <div [ngClass]="{'activesmenu': mainbut==='calendar'}" class="col-xs-3"><i class="material-icons">date_range</i></div>
+          <div [ngClass]="{'activesmenu': mainbut==='calendar'}" class="col-xs-9">Calendar</div>
+        </a>
+      </div>
+      <div class="row butmenu">
+        <a routerLink="/status" (click)="mainbut='status'" routerLinkActive="active">
+          <div [ngClass]="{'activesmenu': mainbut==='status'}" class="col-xs-3"><i class="material-icons">low_priority</i></div>
+          <div [ngClass]="{'activesmenu': mainbut==='status'}" class="col-xs-9">Status Tasks</div>
+        </a>
+      </div>
+      <div class="row butmenu">
+        <a (click)="logout()">
+          <div class="col-xs-3"><i class="material-icons">settings_power</i></div>
+          <div class="col-xs-9">Logout</div>
+        </a>
+      </div>
+
+    </div>
+    <div (click)="menuexpand=!menuexpand" class="col-xs-2 icon-lat">
+      <i class="material-icons">swap_horiz</i>
+    </div>
+  </div>
+
 </div>

@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Observable } from 'rxjs/Observable';
+import { Router } from "@angular/router";
+import * as firebase from 'firebase';
 
 @Injectable()
 export class ApisoftService {
+    logeduser: Observable<firebase.User>;
     users: FirebaseListObservable<any[]>;
     user: FirebaseObjectObservable<any>;
     items: FirebaseListObservable<any[]>;
@@ -13,19 +18,28 @@ export class ApisoftService {
     task: FirebaseObjectObservable<any>;
     clients: FirebaseListObservable<any[]>;
     client: FirebaseObjectObservable<any>;
+    usuario: FirebaseObjectObservable<any>;
+    uiduser:string;
 
-  constructor(public db: AngularFireDatabase) {
-    this.users= db.list('/users');
-    this.user = db.object('/users');
-    this.items = db.list('/users');
-    this.item = db.object('/users');
-    this.projects = db.list('/projects');
-    this.project = db.object('/projects');
-    this.tasks = db.list('/tasks');
-    this.task = db.object('/tasks');
-    this.clients = db.list('/clients');
-    this.client = db.object('/clients');
-  }
+    constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
+      afAuth.authState.subscribe(info=>{
+        this.uiduser = info.uid;
+        console.log(this.uiduser);
+      this.users= db.list('/group/'+this.uiduser+'/userauths');
+      this.user = db.object('/group/'+this.uiduser+'/userauths');
+      this.items = db.list('/group/'+this.uiduser+'/users');
+      this.item = db.object('/group/'+this.uiduser+'/users');
+      this.projects = db.list('/group/'+this.uiduser+'/projects');
+      this.project = db.object('/group/'+this.uiduser+'/projects');
+      this.tasks = db.list('/group/'+this.uiduser+'/tasks');
+      this.task = db.object('/group/'+this.uiduser+'/tasks');
+      this.clients = db.list('/group/'+this.uiduser+'/clients');
+      this.client = db.object('/group/'+this.uiduser+'/clients');
+      this.usuario = db.object('/users/'+this.uiduser);
+
+      })
+      //'/group/'+this.logeduser+
+      }
 
     idsoft:any;
     softname:any;
@@ -42,6 +56,25 @@ export class ApisoftService {
 
 Llamado:any = function (){
   console.log('alo alo!');
+}
+
+removeuser:any = function(clave){
+this.users.remove(clave);
+}
+
+NewUser:any = function(obj){
+  var UserObject = {
+    'name': obj.name,
+    'email': obj.email,
+    'code': obj.code,
+    'group': obj.group
+    }
+  console.log(obj);
+  this.users.push(obj);
+}
+
+getUsers:any = function(){
+return Promise.resolve(this.users);  
 }
 
 NewClient:any = function(obj){
@@ -62,9 +95,11 @@ getClient:any = function(){
 return Promise.resolve(this.clients);
 };
 
-getUsers:any = function(){
-return Promise.resolve(this.users);
-};
+getUsuario:any = function(){
+  console.log('enviando datos usuario');
+  return Promise.resolve(this.usuario);
+}
+
 
 NewProject:any = function(obj){
   var ProjectObject = {
@@ -107,7 +142,7 @@ NewTask:any = function(obj){
 }
 
 changestatus(code, state){
-  var newtask = this.db.object('/tasks/'+code);
+  var newtask = this.db.object('/group/'+this.uiduser+'/'+'/tasks/'+code);
   newtask.update({'statustask':state});
 }
 
@@ -115,6 +150,7 @@ changestatus(code, state){
 getTasks:any = function(){
   return Promise.resolve(this.tasks);
 }
+
 
 
 CleanList(){

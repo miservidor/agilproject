@@ -16,3 +16,38 @@ margin-right: 5px;
 .glyphicon{
     padding-left: 20px;
 }
+.icon-button>i{
+    padding: 10px;
+    font-size: 40px !important;
+    color: #777;
+}
+.menulatbox{
+    height: 100%;
+}
+a{
+    color: #777;
+}
+.lat-icon{
+    border-right: solid 1px #999;
+}
+.active{
+    background: #8BC34A;
+    color: white !important;
+}
+.active>i{
+    background: #8BC34A;
+    color: white !important;
+}
+.activesmenu{
+    color: #8BC34A;
+}
+.icon-lat>i{
+    padding: 10px;
+    font-size: 40px !important;
+    color: #999;
+}
+.icon-lat>i:hover{
+    padding: 10px;
+    font-size: 40px !important;
+    color: #8BC34A;
+}

@@ -1,0 +1,68 @@
+<div class="contenedor">
+<div class="row">
+  <div class="col-sm-3">
+    <div class="box-unread boxup">
+      <div class="row">
+        <div class="col-xs-9">To do
+          <img src="./assets/chart-1.svg" alt="">
+        </div>
+        <div class="col-xs-3"><span class="font-lg">{{listtasks | async | numstatus:'todo'}}</span></div>
+      </div>
+    </div></div>
+  <div class="col-sm-3">
+    <div class="box-check boxup">
+      <div class="row">
+        <div class="col-xs-9">In Progress
+          <img src="./assets/chart-2.svg" alt="">
+        </div>
+        <div class="col-xs-3"><span class="font-lg">{{listtasks | async | numstatus:'inprogress'}}</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+        <div class="box-files boxup">
+      <div class="row">
+        <div class="col-xs-9">To Check
+          <img src="./assets/chart-1.svg" alt="">
+        </div>
+        <div class="col-xs-3"><span class="font-lg">{{listtasks | async | numstatus:'tocheck'}}</span></div>
+    </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="box-users boxup">
+      <div class="row">
+        <div class="col-xs-9">Ready
+          <img src="./assets/chart-1.svg" alt="">          
+        </div>
+        <div class="col-xs-3"><span class="font-lg">{{listtasks | async | numstatus:'ready'}}</span></div>
+    </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="contenedor">
+  <div class="row">
+    <div class="col-sm-4">
+            <div class="box-primario">
+        <div class="box-header">Chronos</div>
+        <div class="box-body">
+          <app-chronos></app-chronos>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="box-primario">
+        <div class="box-header">Chat</div>
+        <div class="box-body">
+          <app-chat></app-chat>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+  
+  <app-login></app-login>
+

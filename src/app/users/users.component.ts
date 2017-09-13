@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApisoftService } from '../services/apisoft.service';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -8,16 +8,32 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-listado: FirebaseListObservable<any[]>;
-elitem: FirebaseObjectObservable<any>;
-  constructor(public api: ApisoftService, db: AngularFireDatabase) {
-    this.listado = db.list('/users/');
-   }
 
-username:any;
-useremail:any;
-usercode:any;
-usergruppe:any;
+username:any = '';
+useremail:any = '';
+usercode:any = '';
+usergruppe:any = '';
+
+listusers:any;
+
+  constructor(public apisoft: ApisoftService) {}
+
+AddUser:any = function(){
+  var userobject = {
+    'name': this.username,
+    'email': this.useremail,
+    'code': this.usercode,
+    'group': this.usergruppe,
+    'status': 'waiting'
+  }
+  console.log(userobject);
+  this.apisoft.NewUser(userobject);
+
+}
+
+removeItemFromList(key){
+  this.apisoft.removeuser(key);
+}
 
 clearuser(){
   this.username="";
@@ -26,27 +42,10 @@ clearuser(){
   this.usergruppe="";
 }
 
-  removeItemFromList(key: string) {
-    this.listado.remove(key).then(_ => console.log('item deleted!'));
-  }
-
-
-
-NewUser:any = function(){
-  var userobject = {
-    'name': this.username,
-    'email': this.useremail,
-    'code': this.usercode,
-    'group': this.usergruppe
-  }
-  this.listado.push(userobject).then(()=>{
-    this.clearuser();
-  });
-}
-
-
   ngOnInit() {
-    console.log(this.listado);
+    this.apisoft.getUsers().then(users=>{
+      this.listusers = users;
+    });
   }
 
 }
