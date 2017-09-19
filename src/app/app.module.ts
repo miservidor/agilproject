@@ -48,6 +48,7 @@ import { NumstatusPipe } from './pipes/numstatus.pipe';
 import { ChronosComponent } from './report/chronos/chronos.component';
 import { ChatComponent } from './chat/chat.component';
 import { UsereditComponent } from './useredit/useredit.component';
+import { HorajsPipe } from './pipes/horajs.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -95,7 +96,8 @@ const appRoutes: Routes = [
     NumstatusPipe,
     ChronosComponent,
     ChatComponent,
-    UsereditComponent
+    UsereditComponent,
+    HorajsPipe
   ],
   imports: [
     BrowserModule,

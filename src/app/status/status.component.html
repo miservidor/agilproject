@@ -8,7 +8,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-3">
-      <div class="todobox"><div class="titcol">To Do</div>
+      <div class="todobox"><div class="titcol box-unread">To Do</div>
     
       <div class="tarjbox" *ngFor="let task of listtasks | async | filstatus:'todo'" (dblclick)="ChangeStatus(task.$key, 'inprogress')" draggable="true">
         <div class="tartit">{{task.nametask}} | {{task.projecttask}}</div>
@@ -22,7 +22,7 @@
     </div>
     </div>
     <div class="col-sm-3">
-            <div class="progressbox"><div class="titcol">In Progress</div>
+            <div class="progressbox"><div class="titcol box-check">In Progress</div>
                 <div class="tarjbox" *ngFor="let task of listtasks | async | filstatus:'inprogress'" (dblclick)="ChangeStatus(task.$key, 'tocheck')" draggable="true">
                     <div class="tartit">{{task.nametask}} | {{task.projecttask}}</div>
                     <div class="tardesc">
@@ -32,7 +32,7 @@
           </div>
     </div>
     <div class="col-sm-3">
-      <div class="checkearbox"><div class="titcol">To Check</div>
+      <div class="checkearbox"><div class="titcol box-files">To Check</div>
                     <div class="tarjbox" *ngFor="let task of listtasks | async | filstatus:'tocheck'" draggable="true">
                     <div class="tartit">{{task.nametask}} | {{task.projecttask}}</div>
                     <div class="tardesc">
@@ -42,7 +42,7 @@
     </div>
     </div>
     <div class="col-sm-3">
-      <div class="readybox"><div class="titcol">Ready</div></div>
+      <div class="readybox"><div class="titcol box-users">Ready</div></div>
     </div>
   </div>
 </div>

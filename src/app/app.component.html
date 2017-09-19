@@ -1,7 +1,37 @@
 <!--The whole content below can be removed with the new code.-->
-<app-menusup></app-menusup>
+<app-menusup *ngIf="(user | async)?.uid"></app-menusup>
+<div *ngIf="!(user | async)?.uid && modalshow" class="modalback">
+  <div class="modalmain">
+    <app-login></app-login>
+  </div>
+</div>
 <div class="">
-  <div class="row">
+  <div *ngIf="(user | async)?.uid" class="row">
     <div class="col-sm-3 white"><app-menulat></app-menulat></div>
     <div class="col-sm-9"><router-outlet></router-outlet></div>
+</div>
+<div *ngIf="!(user | async)?.uid" class="row indexmain">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <img src="./assets/logo.png" style="width: 8.0625rem;" alt="">
+      </div>
+      <div class="col-xs-8">
+        <div class="row menuoff">
+          <div class="col-sm-3">COMO FUNCIONA</div>
+          <div class="col-sm-3">PLANES</div>
+          <div class="col-sm-3">CONSULTAS</div>
+          <div class="col-sm-3" (click)="modalshow=!modalshow">CONECTARSE</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <app-main></app-main>
+      </div>
+  </div>
+
+  </div>
+
+  
 </div>

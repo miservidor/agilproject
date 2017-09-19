@@ -1,4 +1,9 @@
-<p>
-  chat works!
-</p>
-<input type="text" class="inputchat" name="" value="">
+<div *ngFor="let chat of listachat | async" class="row">
+  <div class="col-xs-12"><strong><span style="color:#999;">{{chat.timechat | horajs}} </span>{{chat.de}}:</strong> {{chat.txt}}</div>
+</div>
+<hr>
+{{dia}}
+<div class="row">
+  <div class="col-xs-10"><input type="text" [(ngModel)]="textchat" class="inputchat" name="" value=""></div>
+  <div class="col-xs-2"><button type="button" (click)="sendchat()">send</button></div>
+</div>

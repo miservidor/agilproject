@@ -12,6 +12,8 @@ export class ApisoftService {
     user: FirebaseObjectObservable<any>;
     items: FirebaseListObservable<any[]>;
     item: FirebaseObjectObservable<any>;
+    chats: FirebaseListObservable<any[]>;
+    chat: FirebaseObjectObservable<any>;
     projects: FirebaseListObservable<any[]>;
     project: FirebaseObjectObservable<any>;
     tasks: FirebaseListObservable<any[]>;
@@ -22,9 +24,11 @@ export class ApisoftService {
     uiduser:string;
 
     constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
-      afAuth.authState.subscribe(info=>{
+      afAuth.authState.subscribe(
+        info=>{if(info){
         this.uiduser = info.uid;
-        console.log(this.uiduser);
+        console.log(this.uiduser)} else
+        {this.uiduser =''};
       this.users= db.list('/group/'+this.uiduser+'/userauths');
       this.user = db.object('/group/'+this.uiduser+'/userauths');
       this.items = db.list('/group/'+this.uiduser+'/users');
@@ -36,7 +40,8 @@ export class ApisoftService {
       this.clients = db.list('/group/'+this.uiduser+'/clients');
       this.client = db.object('/group/'+this.uiduser+'/clients');
       this.usuario = db.object('/users/'+this.uiduser);
-
+      this.chats= db.list('/group/'+this.uiduser+'/chats');
+      this.chat= db.object('/group/'+this.uiduser+'/chats');
       })
       //'/group/'+this.logeduser+
       }
@@ -73,6 +78,16 @@ NewUser:any = function(obj){
   this.users.push(obj);
 }
 
+/* CHAT */
+getChats:any = function(){
+return Promise.resolve(this.chats);
+}
+
+newChat:any = function(obj){
+  this.chats.push(obj);
+  return Promise.resolve();
+}
+
 getUsers:any = function(){
 return Promise.resolve(this.users);  
 }
@@ -96,7 +111,6 @@ return Promise.resolve(this.clients);
 };
 
 getUsuario:any = function(){
-  console.log('enviando datos usuario');
   return Promise.resolve(this.usuario);
 }
 
@@ -122,7 +136,6 @@ getProject:any = function(){
 
 NewTask:any = function(obj){
   var TaskObject = {
-
       'codtask':obj.codtask,
       'projecttask':obj.projecttask,
       'nametask':obj.nametask,
@@ -135,7 +148,6 @@ NewTask:any = function(obj){
       'userstask':obj.userstask,
       'statustask':obj.statustask,
       'clientetask':obj.clientetask
-
   }
   this.tasks.push(TaskObject);
   return Promise.resolve();
@@ -146,12 +158,10 @@ changestatus(code, state){
   newtask.update({'statustask':state});
 }
 
-
 getTasks:any = function(){
+  console.log(this.tasks);
   return Promise.resolve(this.tasks);
 }
-
-
 
 CleanList(){
 this.idsoft="";
@@ -182,8 +192,6 @@ NewSoftware:any = function(){
   this.websection = "listsoft";
 });
 }
-
-
 
 CleanClientList:any = function(){
     this.idcli = "";

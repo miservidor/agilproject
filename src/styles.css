@@ -24,8 +24,7 @@ body{
     background: white;
 }
 .lista:hover{
-    background: #FFC973;
-    color: white;
+    color: #8BC34A;
 }
 .box-unread{
     background: linear-gradient(229deg, #fd9a77, #fb827a);
@@ -39,6 +38,10 @@ background: linear-gradient(248deg, #348ac7, #7474bf)
 }
 .box-users{
 background: linear-gradient(67deg, #f15f79, #b24592);
+}
+.titcol{
+    padding: 5px;
+    box-shadow: #333 0px 1px 5px;
 }
 .boxup{
     width: 100%;
@@ -108,4 +111,25 @@ background: linear-gradient(67deg, #f15f79, #b24592);
 a {
     color: #009688 !important;
     text-decoration: none;
+}
+.menuoff{
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.marcomenu{
+    position: fixed;
+}
+.modalback{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    z-index: 999;
+}
+.modalmain{
+    margin-top: 100px;
+    background: white;
+    border-radius: 5px 5px 5px 5px;
+    padding: 20px;
+    width: 500px;
 }

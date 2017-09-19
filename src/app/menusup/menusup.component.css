@@ -31,3 +31,17 @@
     padding-right:10px;
     border-right: solid white 1px; 
 }
+input{
+color: black;
+}
+.pass{
+    width:40px;
+}
+.butsup{
+background: greenyellow;
+padding: 5px;
+width: 120px;
+border-radius: 5px 5px 5px 5px;
+text-align: center;
+color: #666;
+}

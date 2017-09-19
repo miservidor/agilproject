@@ -22,20 +22,27 @@ export class MenusupComponent implements OnInit {
   constructor(public apisoft: ApisoftService, public afAuth: AngularFireAuth, db: AngularFireDatabase, public auth: AuthService) {
         this.user = afAuth.authState;
    }
-
+  email:string;
+  password:string;
   dato:any;
 
-    loaduser:any = function(){
+  loaduser:any = function(){
     this.apisoft.getUsuario().then(resp =>{
       this.dato = resp;
-      console.log(resp);
     });
   }
 
+   loginemail(){
+    this.auth.emailLogin(this.email, this.password);
+    setTimeout(()=>{this.loaduser()}, 2000);
+  }
+
+  logout(){
+     this.afAuth.auth.signOut();
+  }
+
   ngOnInit() {
-
-        setTimeout(()=>{this.loaduser()}, 3000);
-
+    setTimeout(()=>{this.loaduser()}, 1000);
   }
 
 }
